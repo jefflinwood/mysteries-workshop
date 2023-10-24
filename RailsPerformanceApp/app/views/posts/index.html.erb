@@ -1,0 +1,9 @@
+<% @posts.each do |post| %>
+    <h2><%= post.title %></h2>
+    <p>By <%= post.user.name %></p> <!-- This causes the N+1 problem -->
+    <!-- ERB Performance Problem -->
+    <% 10000.times do %>
+        <%= "This is just a filler text. " * 10 %>
+      <% end %>
+  <% end %>
+  
